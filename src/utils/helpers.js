@@ -176,21 +176,21 @@ function drawRects(ctx, rects) {
 
 function drawCustomHand(ctx, rect) {
   const { thickness, length } = rect;
-  const snowFlakeStart = 0.65;
+  // const snowFlakeStart = 0.65;
 
   ctx.moveTo(0, 0);
   ctx.lineTo(thickness / 2, 0);
-  ctx.lineTo(thickness / 2, -(length * snowFlakeStart));
-  ctx.lineTo(thickness / 2 + thickness, -(length * snowFlakeStart) - thickness);
-  ctx.lineTo(thickness / 2, -(length * snowFlakeStart) - thickness * 2);
+  // ctx.lineTo(thickness / 2, -(length * snowFlakeStart));
+  // ctx.lineTo(thickness / 2 + thickness, -(length * snowFlakeStart) - thickness);
+  // ctx.lineTo(thickness / 2, -(length * snowFlakeStart) - thickness * 2);
   ctx.lineTo(thickness / 2, -length);
   ctx.lineTo(-(thickness / 2), -length);
-  ctx.lineTo(-(thickness / 2), -(length * snowFlakeStart) - thickness * 2);
-  ctx.lineTo(
-    -(thickness / 2) - thickness,
-    -(length * snowFlakeStart) - thickness
-  );
-  ctx.lineTo(-(thickness / 2), -(length * snowFlakeStart));
+  // ctx.lineTo(-(thickness / 2), -(length * snowFlakeStart) - thickness * 2);
+  // ctx.lineTo(
+  // -(thickness / 2) - thickness,
+  // -(length * snowFlakeStart) - thickness
+  // );
+  // ctx.lineTo(-(thickness / 2), -(length * snowFlakeStart));
   ctx.lineTo(-(thickness / 2), 0);
   ctx.lineTo(0, 0);
 }
