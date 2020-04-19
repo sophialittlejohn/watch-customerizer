@@ -1,15 +1,15 @@
 import React from "react";
 import "./ProductConfig.css";
-import { colorOptions, ColorOption } from "../utils/colorOptions";
-import { useConfig } from "./ProductConfig";
+import { ColorOption } from "../utils/colorOptions";
+import { useConfig } from "../hooks/useConfig";
 
-export type ColorChoiceContext = {
+export type ColorChoiceProps = {
   colorChoice: ColorOption;
   setColorChoice: (e: any) => void;
 };
 
 export const ColorChoice: React.FC = () => {
-  const { colorChoice, setColorChoice } = useConfig();
+  const { colorChoice, setColorChoice, colorOptions } = useConfig();
 
   return (
     <form>

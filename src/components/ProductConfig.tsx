@@ -1,26 +1,25 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./ProductConfig.css";
-import { ZoomProps, Zoom } from "./Zoom";
-import { ColorChoiceContext, ColorChoice } from "./ColorChoice";
+import { Zoom } from "./Zoom";
+import { ColorChoice } from "./ColorChoice";
 import Canvas from "./Canvas";
-import { ColorOption, colorOptions } from "../utils/colorOptions";
+import { ColorOption } from "../utils/colorOptions";
+import { ConfigContext } from "../hooks/useConfig";
 
-type IConfigContext = ZoomProps & ColorChoiceContext;
-
-interface CompoundComponent {
+type CompoundComponent<T> = {
   Zoom: React.FC;
   ColorChoice: React.FC;
   Canvas: React.FC;
+} & React.FC<T>;
+
+interface ProductConfigProps {
+  colorOptions: ColorOption[];
 }
 
-interface ProductConfigProps {}
-
-const ConfigContext = React.createContext<IConfigContext | undefined>(
-  undefined
-);
-
-export const ProductConfig: React.FC<ProductConfigProps> &
-  CompoundComponent = ({ children }) => {
+export const ProductConfig: CompoundComponent<ProductConfigProps> = ({
+  colorOptions,
+  children,
+}) => {
   const [colorChoice, setColorChoice] = useState<ColorOption>(colorOptions[3]);
   const [zoom, setZoom] = useState(0);
 
@@ -30,8 +29,9 @@ export const ProductConfig: React.FC<ProductConfigProps> &
       setZoom,
       colorChoice,
       setColorChoice,
+      colorOptions,
     }),
-    [zoom, setZoom, colorChoice, setColorChoice]
+    [zoom, setZoom, colorChoice, setColorChoice, colorOptions]
   );
 
   return (
@@ -39,14 +39,6 @@ export const ProductConfig: React.FC<ProductConfigProps> &
       <div className="product-container">{children}</div>
     </ConfigContext.Provider>
   );
-};
-
-export const useConfig = (): IConfigContext => {
-  const context = useContext(ConfigContext);
-  if (!context) {
-    throw new Error("This component must be used within a <Tabs> component.");
-  }
-  return context;
 };
 
 ProductConfig.Zoom = Zoom;

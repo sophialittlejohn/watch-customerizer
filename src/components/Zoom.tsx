@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProductConfig.css";
 import { Slider } from "./Slider";
-import { useConfig } from "./ProductConfig";
+import { useConfig } from "../hooks/useConfig";
 
 export type ZoomProps = {
   zoom: number;
