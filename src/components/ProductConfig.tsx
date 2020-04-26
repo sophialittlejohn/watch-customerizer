@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./ProductConfig.css";
 import { Zoom } from "./Zoom";
 import { ColorChoice } from "./ColorChoice";
-import Canvas from "./Canvas";
 import { ColorOption } from "../utils/colorOptions";
 import { ConfigContext } from "../hooks/useConfig";
+import Canvas from "./Canvas";
 
 type CompoundComponent<T> = {
   Zoom: React.FC;

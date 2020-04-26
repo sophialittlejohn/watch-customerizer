@@ -7,6 +7,8 @@ const baseColors = {
 
 let variableRadius;
 
+// draw sbb clock!!
+
 function getArcs(fillStyle) {
   return [
     {

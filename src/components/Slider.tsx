@@ -25,11 +25,10 @@ export const Slider: React.FC<SliderProps> = ({
         step={step}
         value={value}
         className="slider"
-        id="myRange"
-        onChange={(e: any) => {
-          console.log("enf", e.currentTarget.value);
-          onChange(e.currentTarget.value);
-        }}
+        id="zoomRange"
+        onChange={(e: React.ChangeEvent<any>) =>
+          onChange(e.currentTarget.value)
+        }
       />
     </div>
   );
